@@ -1,0 +1,42 @@
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "@modelcontextprotocol/server-filesystem",
+        "/home/ubuntu/workspace"
+      ]
+    },
+    "mcp_server_mysql": {
+      "command": "npx",
+      "args": [
+        "@benborla29/mcp-server-mysql"
+      ],
+      "env": {
+        "MYSQL_HOST": "host.docker.internal",
+        "MYSQL_PORT": "33071",
+        "MYSQL_USER": "homestead",
+        "MYSQL_PASS": "secret",
+        "MYSQL_DB": "homestead",
+        "ALLOW_INSERT_OPERATION": "false",
+        "ALLOW_UPDATE_OPERATION": "false",
+        "ALLOW_DELETE_OPERATION": "false"
+      },
+      "disabled": true
+    },
+    "playwright": {
+      "command": "npx",
+      "args": [
+        "@playwright/mcp@latest",
+        "--no-sandbox",
+        "--headless"
+      ]
+    },
+    "excel-csv": {
+      "type": "stdio",
+      "command": "excel-csv-mcp-server",
+      "args": [],
+      "env": {}
+    }
+  }
+}
